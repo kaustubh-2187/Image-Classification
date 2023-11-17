@@ -1,4 +1,4 @@
 streamlit
 keras
-PIL
+Pillow
 numpy
