@@ -1,5 +1,5 @@
 import streamlit as st
-from keras.models import load_model
+import keras
 from PIL import Image
 
 from util import classify
@@ -14,7 +14,7 @@ st.header("Upload Image")
 file = st.file_uploader('', type=['jpeg','jpg','png'])
 
 # Load the Classifier for making predictions
-model = load_model("animal_classifier.h5", compile=False)
+model = keras.models.load_model("animal_classifier.h5", compile=False)
 model.compile(loss="categorical_crossentropy",
               optimizer="adam",
               metrics=["accuracy"])
