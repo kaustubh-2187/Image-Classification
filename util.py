@@ -14,7 +14,7 @@ def classify(image, model, class_names):
     # make prediction
     prediction = model.predict(data)
     index = np.argmax(prediction)
-    class_name = class_names[index]
+    class_name = class_names[index].capitalize()
     confidence_score = prediction[0][index]
 
     return class_name, confidence_score

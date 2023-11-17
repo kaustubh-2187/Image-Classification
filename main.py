@@ -1,5 +1,4 @@
 import streamlit as st
-import tensorflow as tf
 from keras.models import load_model
 from PIL import Image
 
@@ -17,7 +16,7 @@ file = st.file_uploader('', type=['jpeg','jpg','png'])
 # Load the Classifier for making predictions
 model = load_model("animal_classifier.h5", compile=False)
 model.compile(loss="categorical_crossentropy",
-              optimizer=tf.keras.optimizers.Adam(),
+              optimizer="adam",
               metrics=["accuracy"])
 
 # load class names
@@ -33,5 +32,5 @@ if file is not None:
     class_name, conf_score = classify(image, model, class_names)
 
     # Write Classification
-    st.write("## {}".format(class_name))
-    st.write("## score : {}".format(conf_score))
+    st.write("## Animal : {}".format(class_name))
+    st.write("## Confidence Score : {}".format(conf_score))
