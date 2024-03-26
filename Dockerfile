@@ -1,11 +1,9 @@
 FROM python:3.9-slim
 
-WORKDIR '/app'
+WORKDIR /app
 
-COPY . .
-
+COPY requirements.txt .
 RUN pip install -r requirements.txt
-EXPOSE 80
-
-ENTRYPOINT [ "streamlit","run" ]
-CMD ["main.py"]
+COPY . .
+EXPOSE 8501
+ENTRYPOINT ["streamlit", "run", "main.py"]
