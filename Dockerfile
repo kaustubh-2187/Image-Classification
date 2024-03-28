@@ -1,9 +1,9 @@
-FROM python:3.9-slim
+FROM python:3-slim
 
 WORKDIR /app
 
 COPY requirements.txt .
 RUN pip install -r requirements.txt
+
 COPY . .
-EXPOSE 8501
-ENTRYPOINT ["streamlit", "run", "main.py"]
+CMD ["streamlit", "run", "main.py"]
